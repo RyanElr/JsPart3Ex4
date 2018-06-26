@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Exercice 4</title>
+</head>
+<body>
+  <form>
+    <label for="password">Votre mot de passe : </label>
+    <input type="text" name="password" id="password" />
+    <label for="confirmPassword">Confirmez : </label>
+    <input type="text" name="confirmPassword" id="confirmPassword"/>
+    <button type="button" name="button" onclick="CheckPassword()">Vérification</button>
+  </form>
+  <script>
+  var password = document.getElementById('password');
+  var confirmPassword = document.getElementById('confirmPassword');
+  function CheckPassword(){
+    var reg = /^[a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\-\?\.\/]+$/
+    if(reg.test(password.value) && reg.test(confirmPassword.value))
+    {
+      if(password.value == confirmPassword.value){
+        ChangeBorderColor('green');
+      } else {
+        ChangeBorderColor('red');
+      }
+    }
+  }
+  function ChangeBorderColor(test)
+  {
+    password.style.borderColor = test;
+    confirmPassword.style.borderColor = test;
+  }
+</script>
+</body>
+</html>
